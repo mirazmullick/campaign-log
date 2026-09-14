@@ -132,10 +132,11 @@ footer.site strong{color:var(--body)}
 .logo-wall{margin:0;padding:28px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:20px}
 .logo-wall-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
 .logo-wall-group .lgl{flex:none;font:600 10.5px/1 "Fira Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);width:100%;margin-bottom:2px}
-.logo-chip{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#fff;border:1px solid var(--line);border-radius:6px;color:var(--body)}
-.logo-chip img,.logo-chip svg{width:20px;height:20px;flex:none;object-fit:contain}
-.logo-chip svg{fill:var(--ink)}
+.logo-chip{display:flex;align-items:center;gap:9px;padding:10px 16px;background:#fff;border:1px solid var(--line);border-radius:6px;color:var(--body)}
+.logo-chip svg{width:20px;height:20px;flex:none;object-fit:contain;fill:var(--ink)}
+.logo-chip img{height:22px;width:auto;max-width:130px;flex:none;object-fit:contain}
 .logo-chip b{font-size:13.5px;font-weight:650;letter-spacing:.01em;white-space:nowrap}
+.logo-chip.mark-only b{display:none}
 
 /* thumbnail catalog + lightbox */
 .catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin:8px 0 40px}
@@ -205,11 +206,11 @@ a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
   <div class="logo-wall" id="logoWall" aria-label="Brands, platforms, agency partners and press titles">
     <div class="logo-wall-group">
       <span class="lgl">Brands</span>
-      <span class="logo-chip" data-slug="triplover"><b>Triplover</b></span>
-      <span class="logo-chip" data-slug="usbangla-airlines"><b>US-Bangla Airlines</b></span>
-      <span class="logo-chip" data-slug="firsttrip"><b>FirstTrip</b></span>
-      <span class="logo-chip" data-slug="airastra"><b>Air Astra</b></span>
-      <span class="logo-chip" data-slug="hajeeair"><b>Hajee Air</b></span>
+      <span class="logo-chip" data-slug="triplover"><img src="logos/triplover.png" alt="Triplover" loading="lazy"><b>Triplover</b></span>
+      <span class="logo-chip" data-slug="usbangla-airlines"><img src="logos/usbangla-airlines.svg" alt="US-Bangla Airlines" loading="lazy"><b>US-Bangla Airlines</b></span>
+      <span class="logo-chip" data-slug="firsttrip"><img src="logos/firsttrip.svg" alt="FirstTrip" loading="lazy"><b>FirstTrip</b></span>
+      <span class="logo-chip" data-slug="airastra"><img src="logos/airastra.svg" alt="Air Astra" loading="lazy"><b>Air Astra</b></span>
+      <span class="logo-chip" data-slug="hajeeair"><img src="logos/hajeeair.svg" alt="Hajee Air" loading="lazy"><b>Hajee Air</b></span>
     </div>
     <div class="logo-wall-group">
       <span class="lgl">Platforms</span>
@@ -219,17 +220,17 @@ a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
     </div>
     <div class="logo-wall-group">
       <span class="lgl">Agency &amp; media partners</span>
-      <span class="logo-chip" data-slug="mediam-group"><b>The Mediam Group</b></span>
-      <span class="logo-chip" data-slug="grey"><b>Grey</b></span>
-      <span class="logo-chip" data-slug="mindshare"><b>MindShare</b></span>
+      <span class="logo-chip" data-slug="mediam-group"><img src="logos/mediam-group.svg" alt="The Mediam Group" loading="lazy"><b>The Mediam Group</b></span>
+      <span class="logo-chip" data-slug="grey"><img src="logos/grey.svg" alt="Grey" loading="lazy"><b>Grey</b></span>
+      <span class="logo-chip" data-slug="mindshare"><img src="logos/mindshare.png" alt="MindShare" loading="lazy"><b>MindShare</b></span>
       <span class="logo-chip" data-slug="carrotcomm"><b>Carrotcomm</b></span>
     </div>
     <div class="logo-wall-group">
       <span class="lgl">Press</span>
-      <span class="logo-chip" data-slug="bangladesh-monitor"><b>Bangladesh Monitor</b></span>
-      <span class="logo-chip" data-slug="dhaka-tribune"><b>Dhaka Tribune</b></span>
-      <span class="logo-chip" data-slug="daily-star"><b>The Daily Star</b></span>
-      <span class="logo-chip" data-slug="ajker-patrika"><b>Ajker Patrika</b></span>
+      <span class="logo-chip" data-slug="bangladesh-monitor"><img src="logos/bangladesh-monitor.webp" alt="Bangladesh Monitor" loading="lazy"><b>Bangladesh Monitor</b></span>
+      <span class="logo-chip" data-slug="dhaka-tribune"><img src="logos/dhaka-tribune.svg" alt="Dhaka Tribune" loading="lazy"><b>Dhaka Tribune</b></span>
+      <span class="logo-chip" data-slug="daily-star"><img src="logos/daily-star.svg" alt="The Daily Star" loading="lazy"><b>The Daily Star</b></span>
+      <span class="logo-chip" data-slug="ajker-patrika"><img src="logos/ajker-patrika.svg" alt="Ajker Patrika" loading="lazy"><b>Ajker Patrika</b></span>
     </div>
   </div>
 </section></div>
