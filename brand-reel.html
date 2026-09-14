@@ -1,0 +1,262 @@
+<title>Brand Reel</title>
+<style>
+  :root{
+    --paper:#F6F3EC;
+    --paper-2:#EFEAE0;
+    --ink:#182220;
+    --ink-2:#4B5652;
+    --ink-3:#7C867F;
+    --line:#DAD3C4;
+    --accent:#B8672E;
+    --accent-ink:#8B4A1E;
+    --accent-soft:#F0DCC9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171512;
+      --paper-2:#1F1C18;
+      --ink:#EDE7DB;
+      --ink-2:#B7AF9E;
+      --ink-3:#8C8576;
+      --line:#3A342A;
+      --accent:#E08A4D;
+      --accent-ink:#F0AB74;
+      --accent-soft:#3A2A1C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171512;
+    --paper-2:#1F1C18;
+    --ink:#EDE7DB;
+    --ink-2:#B7AF9E;
+    --ink-3:#8C8576;
+    --line:#3A342A;
+    --accent:#E08A4D;
+    --accent-ink:#F0AB74;
+    --accent-soft:#3A2A1C;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Sans 3", "Work Sans", system-ui, sans-serif;
+    padding:0 20px;
+    padding-block:44px 80px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;}
+  h1,h2{font-family:"Fraunces", Georgia, serif; text-wrap:balance;}
+
+  header{border-bottom:1px solid var(--line); padding-bottom:24px; margin-bottom:28px;}
+  .eyebrow{
+    font-family:"Space Mono", monospace;
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-ink); margin:0 0 14px;
+  }
+  h1{font-size:clamp(1.9rem, 5vw, 2.6rem); font-weight:600; margin:0 0 12px;}
+  .dek{font-size:1.02rem; line-height:1.6; color:var(--ink-2); max-width:64ch; margin:0;}
+
+  /* Brand tabs */
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:32px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:0;
+  }
+  .tab{
+    font-family:"Space Mono", monospace;
+    font-size:13px;
+    letter-spacing:0.02em;
+    background:none;
+    border:none;
+    color:var(--ink-3);
+    padding:10px 4px 12px;
+    margin-right:22px;
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  .tab:hover{color:var(--ink);}
+  .tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent); font-weight:700;}
+
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  h2.section-label{
+    font-size:1.05rem;
+    font-weight:600;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .section-label .count{
+    font-family:"Space Mono", monospace;
+    font-weight:400;
+    font-size:12px;
+    color:var(--ink-3);
+    margin-left:8px;
+  }
+
+  /* Photo grid */
+  .photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin-bottom:36px;
+  }
+  @media (max-width:720px){ .photo-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:460px){ .photo-grid{grid-template-columns:1fr;} }
+  .photo-grid a{
+    display:block;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    aspect-ratio:4/5;
+    background:var(--paper-2);
+  }
+  .photo-grid img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .25s ease;
+  }
+  .photo-grid a:hover img{transform:scale(1.04);}
+
+  /* Video grid */
+  .video-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  @media (max-width:720px){ .video-grid{grid-template-columns:1fr;} }
+  .video-frame{
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    aspect-ratio:9/16;
+    background:#000;
+  }
+  .video-frame iframe{
+    width:100%; height:100%; border:0; display:block;
+  }
+
+  footer{
+    margin-top:48px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--ink-3);
+    line-height:1.6;
+  }
+  footer p{max-width:66ch; margin:0 0 6px;}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap">
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Companion to Campaign Log</p>
+    <h1>Brand Reel</h1>
+    <p class="dek">Real files, pulled directly from each brand's own Facebook page &mdash; full-resolution photography and the videos playing inline via Facebook's own player. Pick a brand.</p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-panel="triplover">Triplover</button>
+    <button class="tab" role="tab" aria-selected="false" data-panel="usbangla">US-Bangla Airlines</button>
+    <button class="tab" role="tab" aria-selected="false" data-panel="firsttrip">FirstTrip</button>
+    <button class="tab" role="tab" aria-selected="false" data-panel="hajeeair">Hajee Air</button>
+  </div>
+
+  <section class="panel active" id="panel-triplover">
+    <h2 class="section-label">Photography <span class="count">6 images, direct from the page</span></h2>
+    <div class="photo-grid">
+      <a href="triplover-t1.jpg" target="_blank"><img src="triplover-t1.jpg" alt="Triplover creative 1"></a>
+      <a href="triplover-t2.jpg" target="_blank"><img src="triplover-t2.jpg" alt="Triplover creative 2"></a>
+      <a href="triplover-t3.jpg" target="_blank"><img src="triplover-t3.jpg" alt="Triplover creative 3"></a>
+      <a href="triplover-t4.jpg" target="_blank"><img src="triplover-t4.jpg" alt="Triplover creative 4"></a>
+      <a href="triplover-t5.jpg" target="_blank"><img src="triplover-t5.jpg" alt="Triplover creative 5"></a>
+      <a href="triplover-t6.jpg" target="_blank"><img src="triplover-t6.jpg" alt="Triplover creative 6"></a>
+    </div>
+    <h2 class="section-label">Video &amp; animation <span class="count">top 3 by views</span></h2>
+    <div class="video-grid">
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1006065761947077%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F26146071661735869%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1607853957524782%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-usbangla">
+    <h2 class="section-label">Photography <span class="count">6 images, direct from the page</span></h2>
+    <div class="photo-grid">
+      <a href="usbangla-u1.jpg" target="_blank"><img src="usbangla-u1.jpg" alt="US-Bangla Airlines creative 1"></a>
+      <a href="usbangla-u2.jpg" target="_blank"><img src="usbangla-u2.jpg" alt="US-Bangla Airlines creative 2"></a>
+      <a href="usbangla-u3.jpg" target="_blank"><img src="usbangla-u3.jpg" alt="US-Bangla Airlines creative 3"></a>
+      <a href="usbangla-u4.jpg" target="_blank"><img src="usbangla-u4.jpg" alt="US-Bangla Airlines creative 4"></a>
+      <a href="usbangla-u5.jpg" target="_blank"><img src="usbangla-u5.jpg" alt="US-Bangla Airlines creative 5"></a>
+      <a href="usbangla-u6.jpg" target="_blank"><img src="usbangla-u6.jpg" alt="US-Bangla Airlines creative 6"></a>
+    </div>
+    <h2 class="section-label">Video &amp; animation <span class="count">top 3 by views</span></h2>
+    <div class="video-grid">
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1067055769023288%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1071234518941569%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F27663499913351391%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-firsttrip">
+    <h2 class="section-label">Photography <span class="count">6 images, direct from the page</span></h2>
+    <div class="photo-grid">
+      <a href="firsttrip-f1.jpg" target="_blank"><img src="firsttrip-f1.jpg" alt="FirstTrip creative 1"></a>
+      <a href="firsttrip-f2.jpg" target="_blank"><img src="firsttrip-f2.jpg" alt="FirstTrip creative 2"></a>
+      <a href="firsttrip-f3.jpg" target="_blank"><img src="firsttrip-f3.jpg" alt="FirstTrip creative 3"></a>
+      <a href="firsttrip-f4.jpg" target="_blank"><img src="firsttrip-f4.jpg" alt="FirstTrip creative 4"></a>
+      <a href="firsttrip-f5.jpg" target="_blank"><img src="firsttrip-f5.jpg" alt="FirstTrip creative 5"></a>
+      <a href="firsttrip-f6.jpg" target="_blank"><img src="firsttrip-f6.jpg" alt="FirstTrip creative 6"></a>
+    </div>
+    <h2 class="section-label">Video &amp; animation <span class="count">top 3 by views, incl. its 955K-view best-performer</span></h2>
+    <div class="video-grid">
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1682931396239906%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1721930992505327%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2014117783312693%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-hajeeair">
+    <h2 class="section-label">Photography <span class="count">6 images, direct from the page</span></h2>
+    <div class="photo-grid">
+      <a href="hajeeair-h1.jpg" target="_blank"><img src="hajeeair-h1.jpg" alt="Hajee Air creative 1"></a>
+      <a href="hajeeair-h2.jpg" target="_blank"><img src="hajeeair-h2.jpg" alt="Hajee Air creative 2"></a>
+      <a href="hajeeair-h3.jpg" target="_blank"><img src="hajeeair-h3.jpg" alt="Hajee Air creative 3"></a>
+      <a href="hajeeair-h4.jpg" target="_blank"><img src="hajeeair-h4.jpg" alt="Hajee Air creative 4"></a>
+      <a href="hajeeair-h5.jpg" target="_blank"><img src="hajeeair-h5.jpg" alt="Hajee Air creative 5"></a>
+      <a href="hajeeair-h6.jpg" target="_blank"><img src="hajeeair-h6.jpg" alt="Hajee Air creative 6"></a>
+    </div>
+    <h2 class="section-label">Video &amp; animation <span class="count">top 3 by views</span></h2>
+    <div class="video-grid">
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1299595531869001%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1803342733591357%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+      <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F24560753993585258%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Source:</strong> photography is downloaded directly from each brand's public Facebook page at original resolution. Video plays through Facebook's own embedded player, pointed at the real post &mdash; nothing re-hosted or re-encoded.</p>
+    <p>Picked by view count where Facebook shows it; otherwise by recency. Part of the same work-sample set as <em>Campaign Log</em>.</p>
+  </footer>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+</script>
