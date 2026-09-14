@@ -39,8 +39,7 @@ header.hero .grid{position:absolute;inset:0;background-image:radial-gradient(rgb
 .hin h1{font-size:clamp(38px,5.6vw,74px);line-height:1.02;margin:0 0 24px;color:#fff;max-width:16ch}
 .hin .dek{max-width:60ch;color:var(--mist);font-size:17px;line-height:1.6;margin:0 0 34px}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border:1px solid rgba(179,207,229,.55);border-radius:99px;background:rgba(179,207,229,.08);font:600 11.5px/1 "Fira Sans",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;width:fit-content;margin-bottom:22px}
-.hfacts{display:flex;flex-wrap:wrap;gap:28px 40px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(179,207,229,.28)}
-.hin{padding-bottom:64px}
+.hfacts{display:flex;flex-wrap:wrap;gap:28px 40px;margin-top:auto;padding-top:28px;border-top:1px solid rgba(179,207,229,.28)}
 .hfacts div{min-width:140px}
 .hfacts dt{font:600 10.5px/1 "Fira Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:6px;opacity:.75}
 .hfacts dd{margin:0;font-weight:600;color:#fff;font-size:14.5px}
@@ -100,6 +99,13 @@ html.js .rv.in{opacity:1;transform:none}
 .fair-scope li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--steel)}
 .fair-pending{margin:20px 0 0;padding-top:16px;border-top:1px dashed var(--line);font-size:12.5px;line-height:1.55;color:var(--steel);font-style:italic}
 
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px 20px;margin:16px 0 40px}
+.partner{position:relative;padding-top:14px}
+.partner::before{content:"";position:absolute;left:0;top:-1px;width:28px;height:1px;background:var(--ink)}
+.partner{border-top:1px solid var(--line)}
+.partner b{display:block;font-family:"Commissioner",system-ui,sans-serif;font-weight:650;font-size:15px;color:var(--ink);margin-bottom:4px}
+.partner span{font-size:12.5px;color:var(--steel);line-height:1.4}
+
 /* subsections within a leg */
 .subhead{display:flex;align-items:baseline;gap:12px;margin:44px 0 6px}
 .subhead:first-of-type{margin-top:8px}
@@ -113,15 +119,6 @@ footer.site strong{color:var(--body)}
 
 .leg{max-width:1080px;margin:0 auto;padding:0 28px}
 
-/* ticker, in the dark hero */
-.ticker{overflow:hidden;margin:8px 0 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.ticker-track{display:flex;gap:40px;width:max-content;padding:18px 0 22px;animation:tick 36s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
-.tick-item{display:flex;align-items:center;gap:8px;color:var(--mist);white-space:nowrap;flex:none;opacity:.85}
-.tick-item svg{width:17px;height:17px;fill:currentColor;flex:none}
-.tick-item b{font:600 12px/1 "Fira Sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
 /* at a glance */
 .glance{padding:64px 0;border-top:1px solid var(--line)}
 .glance-stats{display:flex;flex-wrap:wrap;gap:8px 44px;margin:10px 0 30px;padding:0;list-style:none}
@@ -129,7 +126,16 @@ footer.site strong{color:var(--body)}
 .glance-stats span{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin-top:6px;max-width:20ch}
 .glance-brands{font-family:"Commissioner",system-ui,sans-serif;font-weight:650;font-size:clamp(1.35rem,3.6vw,2.1rem);line-height:1.24;letter-spacing:-.015em;margin:0 0 10px;max-width:34ch;color:var(--ink)}
 .glance-brands span{color:var(--mid)}
-.glance-sub{color:var(--steel);font-size:14.5px;line-height:1.6;max-width:66ch;margin:0}
+.glance-sub{color:var(--steel);font-size:14.5px;line-height:1.6;max-width:66ch;margin:0 0 36px}
+
+/* logo wall, static, inside at-a-glance */
+.logo-wall{margin:0;padding:28px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:20px}
+.logo-wall-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.logo-wall-group .lgl{flex:none;font:600 10.5px/1 "Fira Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);width:100%;margin-bottom:2px}
+.logo-chip{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#fff;border:1px solid var(--line);border-radius:6px;color:var(--body)}
+.logo-chip img,.logo-chip svg{width:20px;height:20px;flex:none;object-fit:contain}
+.logo-chip svg{fill:var(--ink)}
+.logo-chip b{font-size:13.5px;font-weight:650;letter-spacing:.01em;white-space:nowrap}
 
 /* thumbnail catalog + lightbox */
 .catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin:8px 0 40px}
@@ -177,10 +183,6 @@ a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
     <h1>Five brands, one working record</h1>
     <p class="dek">Photography, video, trade collateral and press work pulled directly from each brand's own channels &mdash; Triplover, US-Bangla Airlines, FirstTrip, Air Astra and Hajee Air &mdash; spanning the online travel agencies and the airline GSSA operation.</p>
 
-    <nav class="ticker" aria-label="Brands, platforms and partners worked with">
-      <div class="ticker-track" id="tickerTrack"></div>
-    </nav>
-
     <dl class="hfacts">
       <div><dt>Prepared for</dt><dd>Arbid Hossain, Jarnee Travel Network</dd></div>
       <div><dt>Prepared by</dt><dd>Miraz Mullick</dd></div>
@@ -199,6 +201,37 @@ a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
   </ul>
   <p class="glance-brands">Campaign work for <span>Triplover, US-Bangla Airlines, FirstTrip, Air Astra</span> and <span>Hajee Air</span>.</p>
   <p class="glance-sub">Paid and organic on Meta, Google and TikTok, alongside print, trade fairs and PR &mdash; run with The Mediam Group, Grey, MindShare and Carrotcomm, and placed in Bangladesh Monitor, Dhaka Tribune, The Daily Star and Ajker Patrika.</p>
+
+  <div class="logo-wall" id="logoWall" aria-label="Brands, platforms, agency partners and press titles">
+    <div class="logo-wall-group">
+      <span class="lgl">Brands</span>
+      <span class="logo-chip" data-slug="triplover"><b>Triplover</b></span>
+      <span class="logo-chip" data-slug="usbangla-airlines"><b>US-Bangla Airlines</b></span>
+      <span class="logo-chip" data-slug="firsttrip"><b>FirstTrip</b></span>
+      <span class="logo-chip" data-slug="airastra"><b>Air Astra</b></span>
+      <span class="logo-chip" data-slug="hajeeair"><b>Hajee Air</b></span>
+    </div>
+    <div class="logo-wall-group">
+      <span class="lgl">Platforms</span>
+      <span class="logo-chip" data-slug="meta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg><b>Meta</b></span>
+      <span class="logo-chip" data-slug="google"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg><b>Google</b></span>
+      <span class="logo-chip" data-slug="tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><b>TikTok</b></span>
+    </div>
+    <div class="logo-wall-group">
+      <span class="lgl">Agency &amp; media partners</span>
+      <span class="logo-chip" data-slug="mediam-group"><b>The Mediam Group</b></span>
+      <span class="logo-chip" data-slug="grey"><b>Grey</b></span>
+      <span class="logo-chip" data-slug="mindshare"><b>MindShare</b></span>
+      <span class="logo-chip" data-slug="carrotcomm"><b>Carrotcomm</b></span>
+    </div>
+    <div class="logo-wall-group">
+      <span class="lgl">Press</span>
+      <span class="logo-chip" data-slug="bangladesh-monitor"><b>Bangladesh Monitor</b></span>
+      <span class="logo-chip" data-slug="dhaka-tribune"><b>Dhaka Tribune</b></span>
+      <span class="logo-chip" data-slug="daily-star"><b>The Daily Star</b></span>
+      <span class="logo-chip" data-slug="ajker-patrika"><b>Ajker Patrika</b></span>
+    </div>
+  </div>
 </section></div>
 
 <main>
@@ -367,6 +400,14 @@ a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
     <div class="stat"><b>4</b><p>Press titles: Bangladesh Monitor, Dhaka Tribune, The Daily Star, Ajker Patrika</p></div>
   </div>
 
+  <div class="subhead rv"><h3>Agency &amp; media partners</h3><span class="count">4 partners, brand by brand</span></div>
+  <div class="partner-grid rv">
+    <div class="partner"><b>The Mediam Group</b><span>Google's official Bangladesh media sales rep</span></div>
+    <div class="partner"><b>Grey</b><span>Creative and campaign agency partner</span></div>
+    <div class="partner"><b>MindShare</b><span>Media planning and buying agency partner</span></div>
+    <div class="partner"><b>Carrotcomm</b><span>Agency partner</span></div>
+  </div>
+
   <div class="fair-block rv">
     <ul class="fair-scope">
       <li>Mapped the fair-floor structure and booth allocation across all four principals</li>
@@ -375,7 +416,6 @@ a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
       <li>Designed and placed the print ads across all four titles</li>
       <li>Worked on the UI for both the B2B (trade/partner) and B2C (consumer booking) websites</li>
       <li>Ran competitor analysis and kept the team current on travel and OTA industry trends</li>
-      <li>Agency &amp; media partners: a media-buying agency pool, The Mediam Group (Google's official Bangladesh media sales rep), Grey, MindShare, Carrotcomm</li>
     </ul>
     <p class="fair-pending">Print tear-sheets (Bangladesh Monitor, Dhaka Tribune, Daily Star, Ajker Patrika) are held by the agency &mdash; pending collection, not yet in this log.</p>
   </div>
@@ -410,7 +450,7 @@ function all(s,r){return [].slice.call((r||d).querySelectorAll(s))}
 var raf=W.requestAnimationFrame.bind(W);
 
 if(anim){
-  var els=all('main h2,main .intro,main .sub,.stat,.subhead,.fair-block,.film-cap');
+  var els=all('main h2,main .intro,main .sub,.stat,.subhead,.fair-block,.film-cap,.partner');
   els.forEach(function(el){
     var p=el.parentNode,i=p.__rvi||0;p.__rvi=i+1;
     el.classList.add('rv');
@@ -436,27 +476,6 @@ function upd(){
 }
 function req(){if(!tick){tick=true;raf(upd)}}
 W.addEventListener('scroll',req,{passive:true});W.addEventListener('resize',req);upd();
-
-/* ---- logo ticker ---- */
-var ICONS={
-  meta:'<path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/>',
-  google:'<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>',
-  tiktok:'<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>'
-};
-var TICK=[
-  ["Triplover",null],["US-Bangla Airlines",null],["FirstTrip",null],["Air Astra",null],["Hajee Air",null],
-  ["Meta","meta"],["Google","google"],["TikTok","tiktok"],
-  ["The Mediam Group",null],["Grey",null],["MindShare",null],["Carrotcomm",null],
-  ["Bangladesh Monitor",null],["Dhaka Tribune",null],["The Daily Star",null],["Ajker Patrika",null]
-];
-var track=d.getElementById('tickerTrack');
-if(track){
-  var itemsHtml=TICK.map(function(t){
-    var ic=t[1]?'<svg viewBox="0 0 24 24" aria-hidden="true">'+ICONS[t[1]]+'</svg>':'';
-    return '<span class="tick-item">'+ic+'<b>'+t[0]+'</b></span>';
-  }).join('');
-  track.innerHTML=itemsHtml+itemsHtml;
-}
 
 /* ---- lightbox ---- */
 var lb=d.getElementById('lightbox'),lbBody=d.getElementById('lightboxBody'),
