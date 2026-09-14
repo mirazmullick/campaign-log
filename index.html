@@ -33,13 +33,14 @@ nav a.on::after{transform:scaleX(1)}
 nav .prog{position:absolute;left:0;bottom:-1px;width:100%;height:2px;background:var(--steel);transform:scaleX(var(--sp,0));transform-origin:0 50%}
 
 /* hero */
-header.hero{position:relative;display:flex;min-height:min(720px,calc(100vh - 56px));min-height:min(720px,calc(100svh - 56px));color:#fff;overflow:hidden;background:radial-gradient(1100px 620px at 86% -8%,rgba(74,127,167,.34),transparent 62%),radial-gradient(900px 520px at -8% 108%,rgba(26,61,99,.62),transparent 62%),var(--ink)}
+header.hero{position:relative;display:flex;min-height:min(640px,100vh);min-height:min(640px,100svh);color:#fff;overflow:hidden;background:radial-gradient(1100px 620px at 86% -8%,rgba(74,127,167,.34),transparent 62%),radial-gradient(900px 520px at -8% 108%,rgba(26,61,99,.62),transparent 62%),var(--ink)}
 header.hero .grid{position:absolute;inset:0;background-image:radial-gradient(rgba(179,207,229,.55) 1px,transparent 1.3px);background-size:26px 26px;opacity:.2;-webkit-mask-image:radial-gradient(ellipse 62% 68% at 74% 30%,#000 8%,transparent 72%);mask-image:radial-gradient(ellipse 62% 68% at 74% 30%,#000 8%,transparent 72%)}
 .hin{position:relative;display:flex;flex-direction:column;width:100%;padding-top:clamp(52px,8vh,92px);padding-bottom:56px}
 .hin h1{font-size:clamp(38px,5.6vw,74px);line-height:1.02;margin:0 0 24px;color:#fff;max-width:16ch}
 .hin .dek{max-width:60ch;color:var(--mist);font-size:17px;line-height:1.6;margin:0 0 34px}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border:1px solid rgba(179,207,229,.55);border-radius:99px;background:rgba(179,207,229,.08);font:600 11.5px/1 "Fira Sans",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;width:fit-content;margin-bottom:22px}
-.hfacts{display:flex;flex-wrap:wrap;gap:28px 40px;margin-top:auto;padding-top:28px;border-top:1px solid rgba(179,207,229,.28)}
+.hfacts{display:flex;flex-wrap:wrap;gap:28px 40px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(179,207,229,.28)}
+.hin{padding-bottom:64px}
 .hfacts div{min-width:140px}
 .hfacts dt{font:600 10.5px/1 "Fira Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:6px;opacity:.75}
 .hfacts dd{margin:0;font-weight:600;color:#fff;font-size:14.5px}
@@ -110,18 +111,64 @@ footer.site .wrap{max-width:1080px}
 footer.site p{max-width:70ch;margin:0 0 8px}
 footer.site strong{color:var(--body)}
 
+.leg{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ticker, in the dark hero */
+.ticker{overflow:hidden;margin:8px 0 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ticker-track{display:flex;gap:40px;width:max-content;padding:18px 0 22px;animation:tick 36s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.tick-item{display:flex;align-items:center;gap:8px;color:var(--mist);white-space:nowrap;flex:none;opacity:.85}
+.tick-item svg{width:17px;height:17px;fill:currentColor;flex:none}
+.tick-item b{font:600 12px/1 "Fira Sans",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* at a glance */
+.glance{padding:64px 0;border-top:1px solid var(--line)}
+.glance-stats{display:flex;flex-wrap:wrap;gap:8px 44px;margin:10px 0 30px;padding:0;list-style:none}
+.glance-stats b{display:block;font-family:"Commissioner",system-ui,sans-serif;font-weight:650;font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:-.02em;line-height:.98;color:var(--ink);font-variant-numeric:tabular-nums}
+.glance-stats span{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin-top:6px;max-width:20ch}
+.glance-brands{font-family:"Commissioner",system-ui,sans-serif;font-weight:650;font-size:clamp(1.35rem,3.6vw,2.1rem);line-height:1.24;letter-spacing:-.015em;margin:0 0 10px;max-width:34ch;color:var(--ink)}
+.glance-brands span{color:var(--mid)}
+.glance-sub{color:var(--steel);font-size:14.5px;line-height:1.6;max-width:66ch;margin:0}
+
+/* thumbnail catalog + lightbox */
+.catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin:8px 0 40px}
+.thumb{all:unset;cursor:pointer;display:block;position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;border:1px solid var(--line);background:#fff}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s var(--ease)}
+.thumb:hover img,.thumb:focus-visible img{transform:scale(1.08)}
+.thumb:focus-visible{outline:2px solid var(--mid);outline-offset:2px}
+.thumb-video{background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--mist)}
+.thumb-video .play{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--mist);display:flex;align-items:center;justify-content:center;font-size:11px;transition:background .2s,color .2s}
+.thumb-video:hover .play,.thumb-video:focus-visible .play{background:var(--mist);color:var(--ink)}
+.thumb-video small{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.8;text-align:center;padding:0 6px}
+.thumb-pdf{background:var(--paper);border-style:dashed;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--steel)}
+.thumb-pdf svg{width:22px;height:22px}
+.thumb-pdf small{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:0 6px}
+
+.lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;visibility:hidden;opacity:0;transition:opacity .18s ease;z-index:80}
+.lightbox.open{visibility:visible;opacity:1}
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(10,15,25,.86)}
+.lightbox-panel{position:relative;max-width:520px;width:100%;max-height:88vh;overflow:auto;background:var(--ink);border-radius:6px}
+.lightbox-panel.wide{max-width:640px}
+.lightbox-panel img{width:100%;height:auto;display:block}
+.lightbox-video-wrap{aspect-ratio:9/16;max-height:80vh;margin:0 auto}
+.lightbox-video-wrap.film{aspect-ratio:16/9}
+.lightbox-video-wrap iframe,.lightbox-video-wrap video{width:100%;height:100%;border:0;display:block}
+.lightbox-cap{padding:14px 18px 18px;color:#fff}
+.lightbox-cap b{display:block;font-weight:700;font-size:1rem}
+.lightbox-cap span{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-top:4px}
+.lightbox-close{position:absolute;top:9px;right:9px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.4);color:#fff;border:none;font-size:19px;line-height:1;cursor:pointer;z-index:2}
+.lightbox-close:focus-visible{outline:2px solid var(--mist)}
+
 @media (max-width:640px){
   .leg{grid-template-columns:1fr}
   .legno{display:flex;align-items:center;gap:10px;padding:0 0 10px}
   .legno::before,.legno::after{display:none}
 }
-@media (max-width:560px){nav div a:not(.always){display:none}}
-a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
+a:focus-visible{outline:2px solid var(--mid);outline-offset:3px}
 </style>
 </head>
 <body>
-
-<nav><div class="wrap"><strong><svg class="mk" viewBox="6 10 92 78" aria-hidden="true"><path fill="#0A1931" d="M96 44C90 40 84 40 78 42C66 30 46 18 8 14C36 26 54 38 62 48C50 54 32 58 12 60C34 64 52 64 66 60L50 84C64 76 74 66 80 56C88 54 93 50 96 44Z"/></svg>Campaign Log</strong><div><a href="#triplover">Triplover</a><a href="#usbangla">US-Bangla</a><a href="#firsttrip">FirstTrip</a><a href="#airastra">Air Astra</a><a href="#hajeeair">Hajee Air</a><a href="#fairs">Trade Fairs</a></div></div><i class="prog" aria-hidden="true"></i></nav>
 
 <header class="hero">
   <div class="grid" aria-hidden="true"></div>
@@ -129,6 +176,11 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
     <span class="pill">Work Samples</span>
     <h1>Five brands, one working record</h1>
     <p class="dek">Photography, video, trade collateral and press work pulled directly from each brand's own channels &mdash; Triplover, US-Bangla Airlines, FirstTrip, Air Astra and Hajee Air &mdash; spanning the online travel agencies and the airline GSSA operation.</p>
+
+    <nav class="ticker" aria-label="Brands, platforms and partners worked with">
+      <div class="ticker-track" id="tickerTrack"></div>
+    </nav>
+
     <dl class="hfacts">
       <div><dt>Prepared for</dt><dd>Arbid Hossain, Jarnee Travel Network</dd></div>
       <div><dt>Prepared by</dt><dd>Miraz Mullick</dd></div>
@@ -136,6 +188,18 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
     </dl>
   </div>
 </header>
+
+<div class="wrap"><section class="glance">
+  <p class="tag">At a glance</p>
+  <ul class="glance-stats">
+    <li><b>5</b><span>Brands, one working record</span></li>
+    <li><b>2</b><span>Annual trade fairs run</span></li>
+    <li><b>4</b><span>Press titles placed</span></li>
+    <li><b>2cr</b><span>BDT trade programme spend</span></li>
+  </ul>
+  <p class="glance-brands">Campaign work for <span>Triplover, US-Bangla Airlines, FirstTrip, Air Astra</span> and <span>Hajee Air</span>.</p>
+  <p class="glance-sub">Paid and organic on Meta, Google and TikTok, alongside print, trade fairs and PR &mdash; run with The Mediam Group, Grey, MindShare and Carrotcomm, and placed in Bangladesh Monitor, Dhaka Tribune, The Daily Star and Ajker Patrika.</p>
+</section></div>
 
 <main>
 
@@ -145,35 +209,37 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
   <p class="intro rv">Online travel agency under US-Bangla Group. Fare promotions, route launches and cultural-calendar content aimed directly at travellers.</p>
 
   <div class="subhead rv"><h3>Photography</h3><span class="count">11 images, direct from the page</span></div>
-  <div class="photo-grid">
-    <a href="triplover-t1.jpg" target="_blank"><img src="triplover-t1.jpg" alt="Triplover creative 1" loading="lazy"></a>
-    <a href="triplover-t2.jpg" target="_blank"><img src="triplover-t2.jpg" alt="Triplover creative 2" loading="lazy"></a>
-    <a href="triplover-t3.jpg" target="_blank"><img src="triplover-t3.jpg" alt="Triplover creative 3" loading="lazy"></a>
-    <a href="triplover-t4.jpg" target="_blank"><img src="triplover-t4.jpg" alt="Triplover creative 4" loading="lazy"></a>
-    <a href="triplover-t5.jpg" target="_blank"><img src="triplover-t5.jpg" alt="Triplover creative 5" loading="lazy"></a>
-    <a href="triplover-t6.jpg" target="_blank"><img src="triplover-t6.jpg" alt="Triplover creative 6" loading="lazy"></a>
-    <a href="triplover-t7.jpg" target="_blank"><img src="triplover-t7.jpg" alt="Triplover creative 7" loading="lazy"></a>
-    <a href="triplover-t8.jpg" target="_blank"><img src="triplover-t8.jpg" alt="Triplover creative 8" loading="lazy"></a>
-    <a href="triplover-t9.jpg" target="_blank"><img src="triplover-t9.jpg" alt="Triplover creative 9" loading="lazy"></a>
-    <a href="triplover-t10.jpg" target="_blank"><img src="triplover-t10.jpg" alt="Triplover creative 10" loading="lazy"></a>
-    <a href="triplover-t11.jpg" target="_blank"><img src="triplover-t11.jpg" alt="Triplover creative 11" loading="lazy"></a>
+  <div class="catalog">
+    <button class="thumb" data-full="triplover-t1.jpg" data-title="Triplover creative 1" data-tag="Triplover &middot; photography"><img src="triplover-t1.jpg" alt="Triplover creative 1" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t2.jpg" data-title="Triplover creative 2" data-tag="Triplover &middot; photography"><img src="triplover-t2.jpg" alt="Triplover creative 2" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t3.jpg" data-title="Triplover creative 3" data-tag="Triplover &middot; photography"><img src="triplover-t3.jpg" alt="Triplover creative 3" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t4.jpg" data-title="Triplover creative 4" data-tag="Triplover &middot; photography"><img src="triplover-t4.jpg" alt="Triplover creative 4" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t5.jpg" data-title="Triplover creative 5" data-tag="Triplover &middot; photography"><img src="triplover-t5.jpg" alt="Triplover creative 5" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t6.jpg" data-title="Triplover creative 6" data-tag="Triplover &middot; photography"><img src="triplover-t6.jpg" alt="Triplover creative 6" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t7.jpg" data-title="Triplover creative 7" data-tag="Triplover &middot; photography"><img src="triplover-t7.jpg" alt="Triplover creative 7" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t8.jpg" data-title="Triplover creative 8" data-tag="Triplover &middot; photography"><img src="triplover-t8.jpg" alt="Triplover creative 8" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t9.jpg" data-title="Triplover creative 9" data-tag="Triplover &middot; photography"><img src="triplover-t9.jpg" alt="Triplover creative 9" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t10.jpg" data-title="Triplover creative 10" data-tag="Triplover &middot; photography"><img src="triplover-t10.jpg" alt="Triplover creative 10" loading="lazy"></button>
+    <button class="thumb" data-full="triplover-t11.jpg" data-title="Triplover creative 11" data-tag="Triplover &middot; photography"><img src="triplover-t11.jpg" alt="Triplover creative 11" loading="lazy"></button>
   </div>
 
   <div class="subhead rv"><h3>Video &amp; animation</h3><span class="count">9 reels</span></div>
-  <div class="video-grid">
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1232752691323952%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2883989955075390%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1089227912699874%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F521734144091578%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2256192518071339%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F777716577739508%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F557369559702966%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F484901950158778%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F622661059506137%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1232752691323952%2F&show_text=false" data-title="Triplover reel 1" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2883989955075390%2F&show_text=false" data-title="Triplover reel 2" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1089227912699874%2F&show_text=false" data-title="Triplover reel 3" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F521734144091578%2F&show_text=false" data-title="Triplover reel 4" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2256192518071339%2F&show_text=false" data-title="Triplover reel 5" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F777716577739508%2F&show_text=false" data-title="Triplover reel 6" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F557369559702966%2F&show_text=false" data-title="Triplover reel 7" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F484901950158778%2F&show_text=false" data-title="Triplover reel 8" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F622661059506137%2F&show_text=false" data-title="Triplover reel 9" data-tag="Triplover &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
   </div>
 
   <div class="subhead rv"><h3>Master film</h3><span class="count">original file, not a re-upload</span></div>
-  <div class="film-frame"><video controls preload="metadata" src="ek-tl-trailer.mp4"></video></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-film="ek-tl-trailer.mp4" data-title="Emirates &times; Triplover, CXB Workshop 2024" data-tag="Triplover &middot; master film"><span class="play">&#9654;</span><small>Play trailer</small></button>
+  </div>
   <p class="film-cap rv"><strong>Emirates x Triplover, CXB Workshop 2024 &mdash; trailer.</strong> Cut for the joint Emirates/Triplover trade workshop at Cox's Bazar.</p>
 </div></div></section>
 
@@ -183,24 +249,26 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
   <p class="intro rv">Bangladesh's largest private airline. Route launches, fare campaigns and cultural-calendar content across its full network.</p>
 
   <div class="subhead rv"><h3>Photography</h3><span class="count">6 images, direct from the page</span></div>
-  <div class="photo-grid">
-    <a href="usbangla-u1.jpg" target="_blank"><img src="usbangla-u1.jpg" alt="US-Bangla Airlines creative 1" loading="lazy"></a>
-    <a href="usbangla-u2.jpg" target="_blank"><img src="usbangla-u2.jpg" alt="US-Bangla Airlines creative 2" loading="lazy"></a>
-    <a href="usbangla-u3.jpg" target="_blank"><img src="usbangla-u3.jpg" alt="US-Bangla Airlines creative 3" loading="lazy"></a>
-    <a href="usbangla-u4.jpg" target="_blank"><img src="usbangla-u4.jpg" alt="US-Bangla Airlines creative 4" loading="lazy"></a>
-    <a href="usbangla-u5.jpg" target="_blank"><img src="usbangla-u5.jpg" alt="US-Bangla Airlines creative 5" loading="lazy"></a>
-    <a href="usbangla-u6.jpg" target="_blank"><img src="usbangla-u6.jpg" alt="US-Bangla Airlines creative 6" loading="lazy"></a>
+  <div class="catalog">
+    <button class="thumb" data-full="usbangla-u1.jpg" data-title="US-Bangla Airlines creative 1" data-tag="US-Bangla Airlines &middot; photography"><img src="usbangla-u1.jpg" alt="US-Bangla Airlines creative 1" loading="lazy"></button>
+    <button class="thumb" data-full="usbangla-u2.jpg" data-title="US-Bangla Airlines creative 2" data-tag="US-Bangla Airlines &middot; photography"><img src="usbangla-u2.jpg" alt="US-Bangla Airlines creative 2" loading="lazy"></button>
+    <button class="thumb" data-full="usbangla-u3.jpg" data-title="US-Bangla Airlines creative 3" data-tag="US-Bangla Airlines &middot; photography"><img src="usbangla-u3.jpg" alt="US-Bangla Airlines creative 3" loading="lazy"></button>
+    <button class="thumb" data-full="usbangla-u4.jpg" data-title="US-Bangla Airlines creative 4" data-tag="US-Bangla Airlines &middot; photography"><img src="usbangla-u4.jpg" alt="US-Bangla Airlines creative 4" loading="lazy"></button>
+    <button class="thumb" data-full="usbangla-u5.jpg" data-title="US-Bangla Airlines creative 5" data-tag="US-Bangla Airlines &middot; photography"><img src="usbangla-u5.jpg" alt="US-Bangla Airlines creative 5" loading="lazy"></button>
+    <button class="thumb" data-full="usbangla-u6.jpg" data-title="US-Bangla Airlines creative 6" data-tag="US-Bangla Airlines &middot; photography"><img src="usbangla-u6.jpg" alt="US-Bangla Airlines creative 6" loading="lazy"></button>
   </div>
 
   <div class="subhead rv"><h3>Video &amp; animation</h3><span class="count">top by views</span></div>
-  <div class="video-grid">
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1067055769023288%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1071234518941569%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1687301572369790%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1067055769023288%2F&show_text=false" data-title="US-Bangla Airlines reel 1" data-tag="US-Bangla Airlines &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1071234518941569%2F&show_text=false" data-title="US-Bangla Airlines reel 2" data-tag="US-Bangla Airlines &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1687301572369790%2F&show_text=false" data-title="US-Bangla Airlines reel 3" data-tag="US-Bangla Airlines &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
   </div>
 
   <div class="subhead rv"><h3>Master film</h3><span class="count">original file, not a re-upload</span></div>
-  <div class="film-frame"><video controls preload="metadata" src="usbangla-documentary.mp4"></video></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-film="usbangla-documentary.mp4" data-title="US-Bangla Documentary, 2023" data-tag="US-Bangla Airlines &middot; master film"><span class="play">&#9654;</span><small>Play documentary</small></button>
+  </div>
   <p class="film-cap rv"><strong>US-Bangla Documentary, 2023.</strong> Corporate documentary produced during his tenure.</p>
 </div></div></section>
 
@@ -210,19 +278,19 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
   <p class="intro rv">Sister OTA to US-Bangla Airlines. Fast-growing consumer travel platform &mdash; flights, hotels, holidays and visa.</p>
 
   <div class="subhead rv"><h3>Photography</h3><span class="count">6 images, direct from the page</span></div>
-  <div class="photo-grid">
-    <a href="firsttrip-f1.jpg" target="_blank"><img src="firsttrip-f1.jpg" alt="FirstTrip creative 1" loading="lazy"></a>
-    <a href="firsttrip-f2.jpg" target="_blank"><img src="firsttrip-f2.jpg" alt="FirstTrip creative 2" loading="lazy"></a>
-    <a href="firsttrip-f3.jpg" target="_blank"><img src="firsttrip-f3.jpg" alt="FirstTrip creative 3" loading="lazy"></a>
-    <a href="firsttrip-f4.jpg" target="_blank"><img src="firsttrip-f4.jpg" alt="FirstTrip creative 4" loading="lazy"></a>
-    <a href="firsttrip-f5.jpg" target="_blank"><img src="firsttrip-f5.jpg" alt="FirstTrip creative 5" loading="lazy"></a>
-    <a href="firsttrip-f6.jpg" target="_blank"><img src="firsttrip-f6.jpg" alt="FirstTrip creative 6" loading="lazy"></a>
+  <div class="catalog">
+    <button class="thumb" data-full="firsttrip-f1.jpg" data-title="FirstTrip creative 1" data-tag="FirstTrip &middot; photography"><img src="firsttrip-f1.jpg" alt="FirstTrip creative 1" loading="lazy"></button>
+    <button class="thumb" data-full="firsttrip-f2.jpg" data-title="FirstTrip creative 2" data-tag="FirstTrip &middot; photography"><img src="firsttrip-f2.jpg" alt="FirstTrip creative 2" loading="lazy"></button>
+    <button class="thumb" data-full="firsttrip-f3.jpg" data-title="FirstTrip creative 3" data-tag="FirstTrip &middot; photography"><img src="firsttrip-f3.jpg" alt="FirstTrip creative 3" loading="lazy"></button>
+    <button class="thumb" data-full="firsttrip-f4.jpg" data-title="FirstTrip creative 4" data-tag="FirstTrip &middot; photography"><img src="firsttrip-f4.jpg" alt="FirstTrip creative 4" loading="lazy"></button>
+    <button class="thumb" data-full="firsttrip-f5.jpg" data-title="FirstTrip creative 5" data-tag="FirstTrip &middot; photography"><img src="firsttrip-f5.jpg" alt="FirstTrip creative 5" loading="lazy"></button>
+    <button class="thumb" data-full="firsttrip-f6.jpg" data-title="FirstTrip creative 6" data-tag="FirstTrip &middot; photography"><img src="firsttrip-f6.jpg" alt="FirstTrip creative 6" loading="lazy"></button>
   </div>
 
   <div class="subhead rv"><h3>Video &amp; animation</h3><span class="count">incl. its 955K-view best-performer</span></div>
-  <div class="video-grid">
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F659998903129694%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1919575415231083%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F659998903129694%2F&show_text=false" data-title="FirstTrip reel 1" data-tag="FirstTrip &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1919575415231083%2F&show_text=false" data-title="FirstTrip reel 2" data-tag="FirstTrip &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
   </div>
 </div></div></section>
 
@@ -232,20 +300,20 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
   <p class="intro rv">Bangladesh's newest domestic carrier. Destination and route creative, seasonal content and trade-partner recognition.</p>
 
   <div class="subhead rv"><h3>Photography</h3><span class="count">6 images, direct from the page</span></div>
-  <div class="photo-grid">
-    <a href="airastra-aa1.jpg" target="_blank"><img src="airastra-aa1.jpg" alt="Air Astra creative 1" loading="lazy"></a>
-    <a href="airastra-aa2.jpg" target="_blank"><img src="airastra-aa2.jpg" alt="Air Astra creative 2" loading="lazy"></a>
-    <a href="airastra-aa3.jpg" target="_blank"><img src="airastra-aa3.jpg" alt="Air Astra creative 3" loading="lazy"></a>
-    <a href="airastra-aa4.jpg" target="_blank"><img src="airastra-aa4.jpg" alt="Air Astra creative 4" loading="lazy"></a>
-    <a href="airastra-aa5.jpg" target="_blank"><img src="airastra-aa5.jpg" alt="Air Astra creative 5" loading="lazy"></a>
-    <a href="airastra-aa6.jpg" target="_blank"><img src="airastra-aa6.jpg" alt="Air Astra creative 6" loading="lazy"></a>
+  <div class="catalog">
+    <button class="thumb" data-full="airastra-aa1.jpg" data-title="Air Astra creative 1" data-tag="Air Astra &middot; photography"><img src="airastra-aa1.jpg" alt="Air Astra creative 1" loading="lazy"></button>
+    <button class="thumb" data-full="airastra-aa2.jpg" data-title="Air Astra creative 2" data-tag="Air Astra &middot; photography"><img src="airastra-aa2.jpg" alt="Air Astra creative 2" loading="lazy"></button>
+    <button class="thumb" data-full="airastra-aa3.jpg" data-title="Air Astra creative 3" data-tag="Air Astra &middot; photography"><img src="airastra-aa3.jpg" alt="Air Astra creative 3" loading="lazy"></button>
+    <button class="thumb" data-full="airastra-aa4.jpg" data-title="Air Astra creative 4" data-tag="Air Astra &middot; photography"><img src="airastra-aa4.jpg" alt="Air Astra creative 4" loading="lazy"></button>
+    <button class="thumb" data-full="airastra-aa5.jpg" data-title="Air Astra creative 5" data-tag="Air Astra &middot; photography"><img src="airastra-aa5.jpg" alt="Air Astra creative 5" loading="lazy"></button>
+    <button class="thumb" data-full="airastra-aa6.jpg" data-title="Air Astra creative 6" data-tag="Air Astra &middot; photography"><img src="airastra-aa6.jpg" alt="Air Astra creative 6" loading="lazy"></button>
   </div>
 
   <div class="subhead rv"><h3>Video &amp; animation</h3><span class="count">top by views</span></div>
-  <div class="video-grid">
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F974833065403409%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1320076000099790%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1016634744251022%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F974833065403409%2F&show_text=false" data-title="Air Astra reel 1" data-tag="Air Astra &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1320076000099790%2F&show_text=false" data-title="Air Astra reel 2" data-tag="Air Astra &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1016634744251022%2F&show_text=false" data-title="Air Astra reel 3" data-tag="Air Astra &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
   </div>
 </div></div></section>
 
@@ -255,34 +323,36 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
   <p class="intro rv">GSSA representing airline principals &mdash; Biman Bangladesh, Etihad, Qatar Airways and others &mdash; to the trade and travelling public, rather than selling its own seat inventory.</p>
 
   <div class="subhead rv"><h3>Photography</h3><span class="count">11 images, direct from the page</span></div>
-  <div class="photo-grid">
-    <a href="hajeeair-h1.jpg" target="_blank"><img src="hajeeair-h1.jpg" alt="Hajee Air creative 1" loading="lazy"></a>
-    <a href="hajeeair-h2.jpg" target="_blank"><img src="hajeeair-h2.jpg" alt="Hajee Air creative 2" loading="lazy"></a>
-    <a href="hajeeair-h3.jpg" target="_blank"><img src="hajeeair-h3.jpg" alt="Hajee Air creative 3" loading="lazy"></a>
-    <a href="hajeeair-h4.jpg" target="_blank"><img src="hajeeair-h4.jpg" alt="Hajee Air creative 4" loading="lazy"></a>
-    <a href="hajeeair-h5.jpg" target="_blank"><img src="hajeeair-h5.jpg" alt="Hajee Air creative 5" loading="lazy"></a>
-    <a href="hajeeair-h6.jpg" target="_blank"><img src="hajeeair-h6.jpg" alt="Hajee Air creative 6" loading="lazy"></a>
-    <a href="hajeeair-h7.jpg" target="_blank"><img src="hajeeair-h7.jpg" alt="Hajee Air creative 7" loading="lazy"></a>
-    <a href="hajeeair-h8.jpg" target="_blank"><img src="hajeeair-h8.jpg" alt="Hajee Air creative 8" loading="lazy"></a>
-    <a href="hajeeair-h9.jpg" target="_blank"><img src="hajeeair-h9.jpg" alt="Hajee Air creative 9" loading="lazy"></a>
-    <a href="hajeeair-h10.jpg" target="_blank"><img src="hajeeair-h10.jpg" alt="Hajee Air creative 10" loading="lazy"></a>
-    <a href="hajeeair-h11.jpg" target="_blank"><img src="hajeeair-h11.jpg" alt="Hajee Air creative 11" loading="lazy"></a>
+  <div class="catalog">
+    <button class="thumb" data-full="hajeeair-h1.jpg" data-title="Hajee Air creative 1" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h1.jpg" alt="Hajee Air creative 1" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h2.jpg" data-title="Hajee Air creative 2" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h2.jpg" alt="Hajee Air creative 2" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h3.jpg" data-title="Hajee Air creative 3" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h3.jpg" alt="Hajee Air creative 3" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h4.jpg" data-title="Hajee Air creative 4" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h4.jpg" alt="Hajee Air creative 4" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h5.jpg" data-title="Hajee Air creative 5" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h5.jpg" alt="Hajee Air creative 5" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h6.jpg" data-title="Hajee Air creative 6" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h6.jpg" alt="Hajee Air creative 6" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h7.jpg" data-title="Hajee Air creative 7" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h7.jpg" alt="Hajee Air creative 7" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h8.jpg" data-title="Hajee Air creative 8" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h8.jpg" alt="Hajee Air creative 8" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h9.jpg" data-title="Hajee Air creative 9" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h9.jpg" alt="Hajee Air creative 9" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h10.jpg" data-title="Hajee Air creative 10" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h10.jpg" alt="Hajee Air creative 10" loading="lazy"></button>
+    <button class="thumb" data-full="hajeeair-h11.jpg" data-title="Hajee Air creative 11" data-tag="Hajee Air &middot; photography"><img src="hajeeair-h11.jpg" alt="Hajee Air creative 11" loading="lazy"></button>
   </div>
 
   <div class="subhead rv"><h3>Video &amp; animation</h3><span class="count">top by views</span></div>
-  <div class="video-grid">
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1299595531869001%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1803342733591357%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F24560753993585258%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F719610273869484%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F553745824170072%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2087677018410586%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
-    <div class="video-frame"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F640009398671255%2F&show_text=false" scrolling="no" allowfullscreen loading="lazy"></iframe></div>
+  <div class="catalog">
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1299595531869001%2F&show_text=false" data-title="Hajee Air reel 1" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1803342733591357%2F&show_text=false" data-title="Hajee Air reel 2" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F24560753993585258%2F&show_text=false" data-title="Hajee Air reel 3" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F719610273869484%2F&show_text=false" data-title="Hajee Air reel 4" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F553745824170072%2F&show_text=false" data-title="Hajee Air reel 5" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2087677018410586%2F&show_text=false" data-title="Hajee Air reel 6" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
+    <button class="thumb thumb-video" data-video="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F640009398671255%2F&show_text=false" data-title="Hajee Air reel 7" data-tag="Hajee Air &middot; video"><span class="play">&#9654;</span><small>Play reel</small></button>
   </div>
 
   <div class="subhead rv"><h3>Business profile</h3><span class="count">one example, corporate collateral not campaign work</span></div>
-  <div class="pdf-frame"><embed src="hajeeair-business-profile.pdf" type="application/pdf"></div>
-  <p class="film-cap rv"><strong>Hajee Air company profile.</strong> Brand book, stationery and pitch materials sit alongside it, not shown here. <a href="hajeeair-business-profile.pdf" target="_blank">Open full PDF &rarr;</a></p>
+  <div class="catalog">
+    <a class="thumb thumb-pdf" href="hajeeair-business-profile.pdf" target="_blank" aria-label="Open Hajee Air company profile PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><small>Open PDF</small></a>
+  </div>
+  <p class="film-cap rv"><strong>Hajee Air company profile.</strong> Brand book, stationery and pitch materials sit alongside it, not shown here.</p>
 </div></div></section>
 
 <section id="fairs"><div class="leg"><div class="legno">06</div><div>
@@ -318,6 +388,18 @@ a:focus-visible,nav a:focus-visible{outline:2px solid var(--mid);outline-offset:
   <p>Performance data (reach, spend, conversion) from client and employer accounts is not his to publish here; figures shown are whatever each platform displays publicly today, not a claimed result. Video plays through Facebook's own embedded player, pointed at the real post &mdash; nothing re-hosted or re-encoded except the two master films, sourced from original production files.</p>
 </div></footer>
 
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+  <div class="lightbox-backdrop"></div>
+  <div class="lightbox-panel" id="lightboxPanel">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+    <div id="lightboxBody"></div>
+    <div class="lightbox-cap">
+      <b id="lightboxTitle"></b>
+      <span id="lightboxTag"></span>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
 var d=document,h=d.documentElement,W=window;
@@ -341,7 +423,7 @@ if(anim){
   els.forEach(function(el){ob.observe(el)});
 }
 
-var secs=all('main section'),links=all('nav div a'),navd=d.querySelector('nav div'),nav=d.querySelector('nav'),cur=-1,tick=false;
+var secs=all('main section'),cur=-1,tick=false;
 function upd(){
   tick=false;var vh=W.innerHeight,act=-1;
   secs.forEach(function(s,i){
@@ -350,15 +432,86 @@ function upd(){
     s.classList.toggle('on',r.top<vh*.55);
     if(r.top<vh*.4)act=i;
   });
-  var H=h.scrollHeight-vh;nav.style.setProperty('--sp',H>0?(W.scrollY/H).toFixed(4):0);
-  if(act!==cur){
-    cur=act;var id=act>-1?'#'+secs[act].id:'';
-    links.forEach(function(a){var on=a.hash===id;a.classList.toggle('on',on);
-      if(on&&navd.scrollWidth>navd.clientWidth)navd.scrollTo({left:a.offsetLeft-navd.offsetLeft-24,behavior:'smooth'})});
-  }
+  cur=act;
 }
 function req(){if(!tick){tick=true;raf(upd)}}
 W.addEventListener('scroll',req,{passive:true});W.addEventListener('resize',req);upd();
+
+/* ---- logo ticker ---- */
+var ICONS={
+  meta:'<path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/>',
+  google:'<path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>',
+  tiktok:'<path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>'
+};
+var TICK=[
+  ["Triplover",null],["US-Bangla Airlines",null],["FirstTrip",null],["Air Astra",null],["Hajee Air",null],
+  ["Meta","meta"],["Google","google"],["TikTok","tiktok"],
+  ["The Mediam Group",null],["Grey",null],["MindShare",null],["Carrotcomm",null],
+  ["Bangladesh Monitor",null],["Dhaka Tribune",null],["The Daily Star",null],["Ajker Patrika",null]
+];
+var track=d.getElementById('tickerTrack');
+if(track){
+  var itemsHtml=TICK.map(function(t){
+    var ic=t[1]?'<svg viewBox="0 0 24 24" aria-hidden="true">'+ICONS[t[1]]+'</svg>':'';
+    return '<span class="tick-item">'+ic+'<b>'+t[0]+'</b></span>';
+  }).join('');
+  track.innerHTML=itemsHtml+itemsHtml;
+}
+
+/* ---- lightbox ---- */
+var lb=d.getElementById('lightbox'),lbBody=d.getElementById('lightboxBody'),
+    lbTitle=d.getElementById('lightboxTitle'),lbTag=d.getElementById('lightboxTag'),
+    lbPanel=d.getElementById('lightboxPanel'),lbClose=d.getElementById('lightboxClose'),
+    lastFocused=null;
+
+function fbEmbed(url){
+  var f=d.createElement('div');f.className='lightbox-video-wrap';
+  var ifr=d.createElement('iframe');
+  ifr.src=url;ifr.setAttribute('scrolling','no');ifr.setAttribute('allowfullscreen','');
+  f.appendChild(ifr);return f;
+}
+function filmEmbed(src){
+  var f=d.createElement('div');f.className='lightbox-video-wrap film';
+  var v=d.createElement('video');v.src=src;v.controls=true;v.autoplay=true;v.preload='metadata';
+  f.appendChild(v);return f;
+}
+function imgEmbed(src,alt){
+  var i=d.createElement('img');i.src=src;i.alt=alt||'';return i;
+}
+
+function openLB(btn){
+  lastFocused=btn;
+  lbBody.innerHTML='';
+  lbPanel.classList.remove('wide');
+  if(btn.dataset.full){
+    lbBody.appendChild(imgEmbed(btn.dataset.full,btn.dataset.title));
+  }else if(btn.dataset.video){
+    lbPanel.classList.add('wide');
+    lbBody.appendChild(fbEmbed(btn.dataset.video));
+  }else if(btn.dataset.film){
+    lbPanel.classList.add('wide');
+    lbBody.appendChild(filmEmbed(btn.dataset.film));
+  }
+  lbTitle.textContent=btn.dataset.title||'';
+  lbTag.textContent=btn.dataset.tag||'';
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden','false');
+  lbClose.focus();
+}
+function closeLB(){
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  lbBody.innerHTML='';
+  if(lastFocused)lastFocused.focus();
+}
+all('.thumb[data-full],.thumb[data-video],.thumb[data-film]').forEach(function(btn){
+  btn.addEventListener('click',function(){openLB(btn)});
+});
+lb.addEventListener('click',function(e){
+  if(e.target===lb||e.target.classList.contains('lightbox-backdrop'))closeLB();
+});
+lbClose.addEventListener('click',closeLB);
+d.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLB()});
 })();
 </script>
 </body></html>
